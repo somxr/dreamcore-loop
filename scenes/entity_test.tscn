@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm0363efx3ols"]
+
+[ext_resource type="Script" uid="uid://btng100rpq1ai" path="res://Interaction_system/Interactable.gd" id="1_fbfjp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ljxae"]
+
+[node name="entity_test" type="StaticBody3D"]
+script = ExtResource("1_fbfjp")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_ljxae")
