@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ir5yv0mtftff"]
+[gd_scene load_steps=10 format=3 uid="uid://ir5yv0mtftff"]
 
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://cm0363efx3ols" path="res://scenes/entity_test.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://cb3b7sr8v6ksd" path="res://scenes/room.tscn" id="3_4wyf3"]
+[ext_resource type="Script" uid="uid://b32v010n4gp3o" path="res://scenes/path_follow_3d.gd" id="4_71j4m"]
+[ext_resource type="PackedScene" uid="uid://camchp8thn4bg" path="res://scenes/fish.tscn" id="4_k0juu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -16,6 +18,14 @@ background_mode = 2
 sky = SubResource("Sky_rwgxs")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_qfnet"]
+closed = true
+_data = {
+"points": PackedVector3Array(-1.26816, 0, -1.00338, 1.26816, 0, 1.00338, -0.987494, 9.36985e-05, 2.30705, -1.39136, 7.7486e-05, 0.119515, 1.39136, -7.7486e-05, -0.119515, 5.20872, 4.91142e-05, 3.27918, 0.924988, 4.45843e-05, 1.08696, -0.924988, -4.45843e-05, -1.08696, 6.11454, 4.91142e-05, -1.65069, 0.750833, 4.45843e-05, 2.01, -0.750833, -4.45843e-05, -2.01, 3.06208, 4.91142e-05, -2.86384, 0, 0, 0, 0, 0, 0, -0.642117, 4.91142e-05, -1.9963),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="world" type="Node3D"]
 
@@ -52,3 +62,18 @@ prompt_action = "Hit"
 
 [node name="Room" parent="." instance=ExtResource("3_4wyf3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -9)
+
+[node name="Fish" parent="." instance=ExtResource("4_k0juu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92497, 1.08755, 8.20148)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.06334, 0.67996, 6.73931)
+curve = SubResource("Curve3D_qfnet")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.620474, 0, -0.78421, 0, 1, 0, 0.78421, 0, -0.620474, -0.987494, 9.36985e-05, 2.30705)
+script = ExtResource("4_71j4m")
+speed = 4.0
+
+[node name="Fish" parent="Path3D/PathFollow3D" instance=ExtResource("4_k0juu")]
+transform = Transform3D(-0.620487, 0, 0.784226, 0, 1, 0, -0.784226, 0, -0.620487, 0, 0, 0)

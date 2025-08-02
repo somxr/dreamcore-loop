@@ -2,6 +2,7 @@ extends RayCast3D
 
 @onready var prompt: Label = $Prompt
 
+
 func _physics_process(_delta: float) -> void:
 	prompt.text = ""
 	

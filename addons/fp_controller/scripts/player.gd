@@ -56,6 +56,10 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Raycast for detecting ceiling
 @onready var crouch_raycast = %CrouchRaycast
 
+@onready var dialogue_balloon: TextureRect = $UserInterface/DialogueBalloon
+@onready var dialogue_label: Label = $UserInterface/DialogueLabel
+
+
 # Dynamic values used for calculation
 var input_direction: Vector2
 var ledge_position: Vector3 = Vector3.ZERO
@@ -79,11 +83,22 @@ var can_sprint: bool = true
 var can_pause: bool = true
 
 
+######################################################################
+##### OUR VARIABLES ###############################################
+###################################################################### 
+var fish_collected := 0
+ 
+
+#######################################################################
+#######################################################################
+
 func _ready() -> void:
 	default_view_bobbing_amount = view_bobbing_amount
 	check_controls()
 	if can_pause:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
+		
 
 
 func check_controls() -> void:
@@ -298,3 +313,23 @@ func _add_joy_button_event(action_name: String, joy_button: JoyButton = 100) -> 
 	var joy_button_event = InputEventJoypadButton.new()
 	joy_button_event.button_index = joy_button
 	InputMap.action_add_event(action_name, joy_button_event)
+
+
+
+
+########################################################################
+##### OUR FUNCTIONS #####################################################
+#########################################################################
+
+
+func show_dialogue(text: String, duration: float):
+	dialogue_label.text = text
+	dialogue_label.visible = true
+	dialogue_balloon.visible = true
+	await get_tree().create_timer(duration).timeout
+	dialogue_label.visible = false
+	dialogue_balloon.visible = false
+
+func collect_fish():
+	fish_collected += 1
+	print("Collected Fish \nFish total = " + str(fish_collected))

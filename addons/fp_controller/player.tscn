@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=24 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" uid="uid://depfcbjlhw3cd" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" uid="uid://s6h843j83gcs" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cr6xhwtcqxt4g" path="res://addons/fp_controller/scripts/player_move_state/slide.gd" id="12_bqyfq"]
 [ext_resource type="Script" uid="uid://dpv2jjujfokc0" path="res://addons/fp_controller/scripts/player_ui.gd" id="12_d7xi0"]
 [ext_resource type="PackedScene" uid="uid://c4btncqt3f72o" path="res://Interaction_system/interact_ray.tscn" id="14_njw88"]
+[ext_resource type="Texture2D" uid="uid://dgjexyfgbv10k" path="res://assets/speech bubble placeholder.png" id="14_ttf0e"]
 
 [sub_resource type="Animation" id="Animation_5udu4"]
 length = 0.001
@@ -322,6 +323,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.5, 2.08165e-12
 [node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
 script = ExtResource("2_1py82")
 
+[node name="InteractRay" parent="CameraPivot" instance=ExtResource("14_njw88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08165e-12, 0.14075, -2.08165e-12)
+
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_wwa58")
@@ -380,8 +384,25 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 
-[node name="InteractRay" parent="." instance=ExtResource("14_njw88")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64075, 0)
+[node name="DialogueBalloon" type="TextureRect" parent="UserInterface"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_ttf0e")
+expand_mode = 1
+
+[node name="DialogueLabel" type="Label" parent="UserInterface"]
+visible = false
+layout_mode = 0
+offset_left = 104.0
+offset_top = 423.0
+offset_right = 267.0
+offset_bottom = 446.0
+text = "asdasdasdasdasdasd"
 
 [connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]
 [connection signal="draw" from="UserInterface/CrosshairContainer/Crosshair" to="UserInterface" method="_on_crosshair_draw"]
