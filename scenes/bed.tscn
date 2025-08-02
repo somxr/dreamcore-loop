@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmk4wglb35xyt"]
+
+[ext_resource type="PackedScene" uid="uid://cpj6bklihdt4e" path="res://assets/room_assets/bed.fbx" id="1_akt7f"]
+[ext_resource type="Script" uid="uid://bajum8fltm7dc" path="res://scenes/bed.gd" id="1_fqty4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fqty4"]
+size = Vector3(2.26599, 1.31201, 3.17712)
+
+[node name="bed" type="StaticBody3D"]
+script = ExtResource("1_fqty4")
+prompt_action = "Sleep?"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0133667, 0.644775, -0.0665894)
+shape = SubResource("BoxShape3D_fqty4")
+
+[node name="bed" parent="." instance=ExtResource("1_akt7f")]

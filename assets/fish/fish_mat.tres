@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://mdb31xsd8bfw"]
+
+[ext_resource type="Texture2D" uid="uid://rm6vhpr1iqex" path="res://assets/fish/fish test_alpha_0.png" id="1_k0gty"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_k0gty")

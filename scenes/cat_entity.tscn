@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkw6bcbuemkwb"]
+
+[ext_resource type="Script" uid="uid://c5hr8ds4v38c4" path="res://scenes/cat_entity.gd" id="1_rpycp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lfeyb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rpycp"]
+radius = 1.63772
+
+[node name="catEntity" type="CharacterBody3D"]
+script = ExtResource("1_rpycp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.265, 0, 0, 0, 2.265, 0, 0, 0, 2.265, 0, 0, 0)
+mesh = SubResource("BoxMesh_lfeyb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_rpycp")

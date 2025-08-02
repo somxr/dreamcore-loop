@@ -88,6 +88,15 @@ var can_pause: bool = true
 ###################################################################### 
 var fish_collected := 0
  
+enum Progress {
+	DREAMING,
+	SLEEPY,
+	WIN
+}
+
+var current_progress = Progress.DREAMING
+
+@onready var interact_ray: RayCast3D = $CameraPivot/InteractRay
 
 #######################################################################
 #######################################################################
@@ -326,9 +335,17 @@ func show_dialogue(text: String, duration: float):
 	dialogue_label.text = text
 	dialogue_label.visible = true
 	dialogue_balloon.visible = true
+	interact_ray.enabled = false
 	await get_tree().create_timer(duration).timeout
 	dialogue_label.visible = false
 	dialogue_balloon.visible = false
+	await get_tree().create_timer(1.0).timeout
+	interact_ray.enabled = true
+	
+	
+	
+	
+	
 
 func collect_fish():
 	fish_collected += 1

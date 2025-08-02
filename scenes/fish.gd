@@ -4,6 +4,6 @@ func interact(_body):
 	
 	if _body.has_method("collect_fish"):
 		_body.collect_fish()
-	else:
-		print("function collect fish not found")
+
+	# the object deletes itself from the world freeing memory
 	queue_free()

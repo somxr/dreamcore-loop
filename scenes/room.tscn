@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=4 uid="uid://cb3b7sr8v6ksd"]
+[gd_scene load_steps=150 format=4 uid="uid://cb3b7sr8v6ksd"]
 
 [ext_resource type="Texture2D" uid="uid://cvy6romqn7h08" path="res://assets/room_assets/Fabric_TXT.png" id="1_jn645"]
 [ext_resource type="Texture2D" uid="uid://c518sbw612f1k" path="res://assets/room_assets/wood_TXT.png" id="2_qvc4m"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b3n2an7oa5bcd" path="res://assets/room_assets/Wall_TXT.png" id="5_qtoah"]
 [ext_resource type="Texture2D" uid="uid://sma0hsgg083i" path="res://assets/room_assets/house_TXT10.png" id="6_eom3m"]
 [ext_resource type="PackedScene" uid="uid://wlbwchqci5t1" path="res://scenes/door.tscn" id="7_qvc4m"]
+[ext_resource type="PackedScene" uid="uid://cmk4wglb35xyt" path="res://scenes/bed.tscn" id="8_7dqbv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tj1wd"]
 resource_name = "fabric"
@@ -2258,6 +2259,7 @@ transform = Transform3D(0.0035028, 0, 0, 0, 0.0035028, 0, 0, 0, 0.0035028, 0, 0,
 
 [node name="bed" type="Node3D" parent="HOME_AND_ROOM/Full_Room__GRP"]
 transform = Transform3D(-0.543538, 0, 42.102, 0, 42.1055, 0, -42.102, 0, -0.543538, 373.135, 182.085, -636.123)
+visible = false
 
 [node name="pillows_OBJ" type="Node3D" parent="HOME_AND_ROOM/Full_Room__GRP/bed"]
 
@@ -2616,3 +2618,6 @@ libraries = {
 
 [node name="Door" parent="." instance=ExtResource("7_qvc4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0593033, 0, 3.25852)
+
+[node name="bed" parent="." instance=ExtResource("8_7dqbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37674, 0, -2.0568)

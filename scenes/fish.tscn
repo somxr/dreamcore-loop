@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://camchp8thn4bg"]
+[gd_scene load_steps=5 format=3 uid="uid://camchp8thn4bg"]
 
 [ext_resource type="Script" uid="uid://dk0avcl1o0i5h" path="res://scenes/fish.gd" id="1_n6yr6"]
+[ext_resource type="PackedScene" uid="uid://h5305amj3pbu" path="res://assets/fish/fish test.fbx" id="2_8g0i4"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_n6yr6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n6yr6"]
-radius = 0.700113
-height = 1.40023
+radius = 0.388133
+height = 1.65154
 
 [node name="Fish" type="CharacterBody3D"]
 script = ExtResource("1_n6yr6")
@@ -14,7 +15,12 @@ prompt_action = "Collect"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
 mesh = SubResource("PrismMesh_n6yr6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_n6yr6")
+
+[node name="fish test" parent="." instance=ExtResource("2_8g0i4")]
+transform = Transform3D(-6.77527e-08, 0, -0.31, 0, 0.31, 0, 0.31, 0, -6.77527e-08, 0, 0, 0)
