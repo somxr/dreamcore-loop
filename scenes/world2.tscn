@@ -148,7 +148,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_oojol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.13903, 0.135697, 12.0933)
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 7.13903, 0.135697, 12.0933)
 
 [node name="Room" parent="." instance=ExtResource("3_0yomu")]
 transform = Transform3D(-0.999088, 0, 0.0427127, 0, 1, 0, -0.0427127, 0, -0.999088, 6.78765, 0.12714, 10.0964)
@@ -338,7 +338,7 @@ shape = SubResource("BoxShape3D_hixyl")
 curve = SubResource("Curve3D_lo3jn")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Fish_collection/Path3D"]
-transform = Transform3D(0.874674, -0.0273804, -0.483934, 1.86264e-09, 0.998397, -0.0564883, 0.48471, 0.0494089, 0.873274, -14.2254, 2.14378, -3.3922)
+transform = Transform3D(0.874674, -0.0273804, -0.483934, 1.86264e-09, 0.998397, -0.0564884, 0.48471, 0.0494089, 0.873274, -14.2254, 2.14378, -3.3922)
 script = ExtResource("10_hvnw1")
 speed = 3.0
 
@@ -358,7 +358,7 @@ speed = 4.0
 curve = SubResource("Curve3D_hvnw1")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Fish_collection/Path3D3"]
-transform = Transform3D(1, -9.91892e-07, 3.85266e-06, -2.27374e-13, 0.968412, 0.249324, -3.97833e-06, -0.249324, 0.968412, 12.9149, 1.58855, 6.99746)
+transform = Transform3D(1, -9.91892e-07, 3.85266e-06, 0, 0.968412, 0.249324, -3.97833e-06, -0.249324, 0.968412, 12.9149, 1.58855, 6.99746)
 script = ExtResource("10_hvnw1")
 speed = 3.0
 

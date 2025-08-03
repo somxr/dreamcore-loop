@@ -103,6 +103,7 @@ var current_progress = Progress.DREAMING
 
 @onready var interact_ray: RayCast3D = $CameraPivot/InteractRay
 @onready var audio_sfx: AudioStreamPlayer = $AudioSfx
+@onready var transition_animation_player: AnimationPlayer = $UserInterface/FadeTransition/TransitionAnimationPlayer
 
 #######################################################################
 #######################################################################
@@ -112,7 +113,7 @@ func _ready() -> void:
 	check_controls()
 	if can_pause:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
+	transition_animation_player.play("fade_in")
 		
 
 
@@ -342,13 +343,24 @@ func show_dialogue(text: String, duration: float):
 	dialogue_label.visible = true
 	dialogue_balloon.visible = true
 	interact_ray.enabled = false
-	await get_tree().create_timer(duration).timeout
+	can_move = false
+	
+	# Small delay to avoid catching the initial F press
+	await get_tree().create_timer(0.1).timeout
+	
+	# Wait for F press
+	while not Input.is_action_just_pressed("interact"):
+		# Stop all movement immediately
+		velocity = Vector3.ZERO
+		await get_tree().process_frame
+
 	dialogue_label.visible = false
 	dialogue_balloon.visible = false
-	await get_tree().create_timer(1.0).timeout
+	can_move = true
+	
+	await get_tree().create_timer(0.5).timeout
 	interact_ray.enabled = true
 	
-
 func collect_fish():
 	fish_collected += 1
 	fish_count_label.text = str(fish_collected)
