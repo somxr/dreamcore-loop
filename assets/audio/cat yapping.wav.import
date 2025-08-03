@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bml6x2v4arf1p"
+path="res://.godot/imported/cat yapping.wav-08fd14c08b1523a082948a86f8615387.sample"
+
+[deps]
+
+source_file="res://assets/audio/cat yapping.wav"
+dest_files=["res://.godot/imported/cat yapping.wav-08fd14c08b1523a082948a86f8615387.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

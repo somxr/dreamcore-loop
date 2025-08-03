@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bybp5w4xhtvyn"]
+[gd_scene load_steps=32 format=4 uid="uid://bybp5w4xhtvyn"]
 
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="1_oojol"]
 [ext_resource type="PackedScene" uid="uid://cb3b7sr8v6ksd" path="res://scenes/room.tscn" id="3_0yomu"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://23mnnva24nxr" path="res://assets/dream_assets/grass02.glb" id="5_q5uyg"]
 [ext_resource type="Shader" uid="uid://df8n60i5m8qv1" path="res://material/grass.tres" id="7_hvnw1"]
 [ext_resource type="PackedScene" uid="uid://n846u8jdqgjc" path="res://assets/dream_assets/Clouds.fbx" id="8_jlm5j"]
+[ext_resource type="PackedScene" uid="uid://camchp8thn4bg" path="res://scenes/fish.tscn" id="9_q5uyg"]
+[ext_resource type="Script" uid="uid://b32v010n4gp3o" path="res://scenes/path_follow_3d.gd" id="10_hvnw1"]
 [ext_resource type="PackedScene" uid="uid://bkw6bcbuemkwb" path="res://scenes/cat_entity.tscn" id="10_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://cggn7y5j0t3v0" path="res://assets/dream_assets/ground for grass5.fbx" id="11_hvnw1"]
 
@@ -112,6 +114,30 @@ size = Vector3(6.18146, 13.652, 2.20291)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hixyl"]
 size = Vector3(0.890137, 13.652, 15.5889)
 
+[sub_resource type="Curve3D" id="Curve3D_lo3jn"]
+closed = true
+_data = {
+"points": PackedVector3Array(-1.5492, -0.180834, 2.79558, 1.5492, 0.180834, -2.79558, -14.2254, 2.14378, -3.3922, -2.41346, 0.0833056, -0.988237, 2.41346, -0.0833056, 0.988237, -5.77638, 2.17145, -5.23937, 1.08202, -0.0531684, -1.4849, -1.08202, 0.0531684, 1.4849, -1.94522, 1.79264, 5.33052, 2.97606, -0.0322368, 2.17359, -2.97606, 0.0322368, -2.17359, -13.6781, 2.38403, 8.10126),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_r0a0i"]
+closed = true
+_data = {
+"points": PackedVector3Array(1.39893, 5.6982e-05, -3.15692, -1.39893, -5.6982e-05, 3.15692, -0.0270727, 2.14069, 13.1678, 1.42186, -3.48091e-05, 1.75516, -1.42186, 3.48091e-05, -1.75516, -6.40281, 2.25174, 12.9351, 1.35275, -3.48091e-05, 3.33386, -1.35275, 3.48091e-05, -3.33386, -3.48207, 1.66497, -1.30016, -1.86531, 0.801225, 3.4704, 1.86531, -0.801225, -3.4704, -5.63055, 2.23423, -9.06717, -2.48959, -6.91414e-06, -3.33577, 2.48959, 6.91414e-06, 3.33577, 0.696157, 2.31495, -13.1471, 0.0594914, -5.14984e-05, -4.93854, -0.0594914, 5.14984e-05, 4.93854, 2.18006, 1.44109, 3.35937),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_hvnw1"]
+closed = true
+_data = {
+"points": PackedVector3Array(1.14441e-05, 0.740602, 2.87661, -1.14441e-05, -0.740602, -2.87661, 12.9149, 1.58855, 6.99746, 0, -2.0946, 0, 0, 2.0946, 0, 12.9149, 4.55199, 2.6071, 0, 0.106868, -2.15872, 0, -0.106868, 2.15872, 12.9149, 8.3992, 6.66806, 0, 2.13734, 0.0427475, 0, -2.13734, -0.0427475, 12.9149, 4.76572, 11.3275),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
 [node name="world" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -122,7 +148,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_oojol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60932, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.13903, 0.135697, 12.0933)
 
 [node name="Room" parent="." instance=ExtResource("3_0yomu")]
 transform = Transform3D(-0.999088, 0, 0.0427127, 0, 1, 0, -0.0427127, 0, -0.999088, 6.78765, 0.12714, 10.0964)
@@ -156,6 +182,7 @@ cast_shadow = 0
 multimesh = SubResource("MultiMesh_hvnw1")
 
 [node name="Clouds_Combined" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Clouds" parent="Clouds_Combined" instance=ExtResource("8_jlm5j")]
 transform = Transform3D(-1.90126, 0, 0.620656, 0, 2, 0, -0.620656, 0, -1.90126, 0, 0, 0)
@@ -304,6 +331,38 @@ shape = SubResource("BoxShape3D_086et")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="colliders_outer"]
 transform = Transform3D(0.701009, 0, 0.713153, 0, 1, 0, -0.713153, 0, 0.701009, 13.4993, 6.326, -13.5741)
 shape = SubResource("BoxShape3D_hixyl")
+
+[node name="Fish_collection" type="Node3D" parent="."]
+
+[node name="Path3D" type="Path3D" parent="Fish_collection"]
+curve = SubResource("Curve3D_lo3jn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Fish_collection/Path3D"]
+transform = Transform3D(0.874674, -0.0273804, -0.483934, 1.86264e-09, 0.998397, -0.0564883, 0.48471, 0.0494089, 0.873274, -14.2254, 2.14378, -3.3922)
+script = ExtResource("10_hvnw1")
+speed = 3.0
+
+[node name="Fish" parent="Fish_collection/Path3D/PathFollow3D" instance=ExtResource("9_q5uyg")]
+
+[node name="Path3D2" type="Path3D" parent="Fish_collection"]
+curve = SubResource("Curve3D_r0a0i")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Fish_collection/Path3D2"]
+transform = Transform3D(-0.914251, -6.6856e-06, 0.405134, 0, 0.999995, 1.65022e-05, -0.405133, 1.50872e-05, -0.914254, -0.0270727, 2.14069, 13.1678)
+script = ExtResource("10_hvnw1")
+speed = 4.0
+
+[node name="Fish3" parent="Fish_collection/Path3D2/PathFollow3D" instance=ExtResource("9_q5uyg")]
+
+[node name="Path3D3" type="Path3D" parent="Fish_collection"]
+curve = SubResource("Curve3D_hvnw1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Fish_collection/Path3D3"]
+transform = Transform3D(1, -9.91892e-07, 3.85266e-06, -2.27374e-13, 0.968412, 0.249324, -3.97833e-06, -0.249324, 0.968412, 12.9149, 1.58855, 6.99746)
+script = ExtResource("10_hvnw1")
+speed = 3.0
+
+[node name="Fish2" parent="Fish_collection/Path3D3/PathFollow3D" instance=ExtResource("9_q5uyg")]
 
 [editable path="ground for grass"]
 [editable path="ground mesh"]

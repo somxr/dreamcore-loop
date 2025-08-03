@@ -24,7 +24,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.37407, 0.599988)
 shape = SubResource("SphereShape3D_rpycp")
 
 [node name="CatEntity3" parent="." instance=ExtResource("2_0apvk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="catentity" parent="CatEntity3" index="0"]
 script = ExtResource("3_sj5l4")

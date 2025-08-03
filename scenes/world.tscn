@@ -78,7 +78,6 @@ script = ExtResource("4_71j4m")
 speed = 4.0
 
 [node name="Fish" parent="Path3D/PathFollow3D" instance=ExtResource("4_k0juu")]
-transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1.00001, 0, 0, 0)
 
 [node name="catEntity" parent="." instance=ExtResource("6_qfnet")]
 transform = Transform3D(1.0014, 0, 0, 0, 1.0014, 0, 0, 0, 1.0014, -11.6389, 1.13007, 4.94359)

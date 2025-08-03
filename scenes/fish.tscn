@@ -6,11 +6,12 @@
 [sub_resource type="PrismMesh" id="PrismMesh_n6yr6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n6yr6"]
-radius = 0.388133
-height = 1.65154
+radius = 0.267513
+height = 1.49177
 
 [node name="Fish" type="CharacterBody3D"]
 script = ExtResource("1_n6yr6")
+wiggle_speed = 0.6
 prompt_action = "Collect"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -23,4 +24,4 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 shape = SubResource("CapsuleShape3D_n6yr6")
 
 [node name="fish test" parent="." instance=ExtResource("2_8g0i4")]
-transform = Transform3D(-6.77527e-08, 0, -0.31, 0, 0.31, 0, 0.31, 0, -6.77527e-08, 0, 0, 0)
+transform = Transform3D(-5.05054e-08, 0, -0.31, 0, 0.31, 0, 0.31, 0, -5.05054e-08, 0, 0, 0)
