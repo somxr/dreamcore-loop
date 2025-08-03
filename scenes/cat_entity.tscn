@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5hr8ds4v38c4" path="res://scenes/cat_entity.gd" id="1_rpycp"]
 [ext_resource type="PackedScene" uid="uid://c6frvvaaqcw3i" path="res://assets/dream_assets/CatEntity3.fbx" id="2_0apvk"]
-[ext_resource type="Script" path="res://scenes/catentity.gd" id="3_sj5l4"]
+[ext_resource type="Script" uid="uid://cpgn6u5g74dxb" path="res://scenes/catentity.gd" id="3_sj5l4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lfeyb"]
 
@@ -11,8 +11,10 @@ radius = 6.502
 
 [node name="catEntity" type="CharacterBody3D" groups=["cat"]]
 script = ExtResource("1_rpycp")
-dialogue_texts = Array[String](["yooo get my fish", "please get my fish bro", "PLEASE", "what don't you get???", "FISH. NOW.", "FISH PLEASE"])
-dialogue_durations = Array[float]([3.0, 5.0, 4.0, 3.0, 3.0, 3.0])
+dialogue_texts = Array[String](["Greetings, mortal. My fish are in need of retrieving, I miss them dearly.", "What, you're still here? Get to it.", "My fish will not catch themselves, mortal.", "You dare defy my command?", "My patience is wearing thin...", "ENOUGH"])
+dialogue_durations = Array[float]([4.0, 5.0, 4.0, 3.0, 3.0, 3.0])
+angry_dialogue = "I tire of you. Leave my sight and do not return."
+angry_dialogue_accept_fish = "I'll accept my fish, but I wish to see you no longer. Leave my sight and do not return."
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.265, 0, 0, 0, 2.265, 0, 0, 0, 2.265, 0, 0, 0)
