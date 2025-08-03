@@ -28,4 +28,7 @@ shape = SubResource("SphereShape3D_rpycp")
 [node name="catentity" parent="CatEntity3" index="0"]
 script = ExtResource("3_sj5l4")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
+
 [editable path="CatEntity3"]

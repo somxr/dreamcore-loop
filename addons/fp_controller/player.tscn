@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=27 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" uid="uid://depfcbjlhw3cd" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" uid="uid://s6h843j83gcs" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://duiporr8sfwvw" path="res://assets/UI/dialogue_ui.png" id="15_ttf0e"]
 [ext_resource type="Texture2D" uid="uid://cd1fgsm4oqgow" path="res://assets/UI/fish box_ui.png" id="16_mkvci"]
 [ext_resource type="FontFile" uid="uid://7kdy6gu8m1fg" path="res://assets/UI/Orange Kid.otf" id="16_vfxpb"]
+[ext_resource type="AudioStream" uid="uid://bvtnlwe7fl8eu" path="res://assets/audio/pickup.wav" id="18_a8wmt"]
 
 [sub_resource type="Animation" id="Animation_5udu4"]
 length = 0.001
@@ -436,6 +437,10 @@ theme_override_colors/font_shadow_color = Color(0.66, 1, 0.915, 1)
 theme_override_fonts/font = ExtResource("16_vfxpb")
 theme_override_font_sizes/font_size = 50
 text = "0"
+
+[node name="AudioSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_a8wmt")
+bus = &"SFX"
 
 [connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]
 [connection signal="draw" from="UserInterface/CrosshairContainer/Crosshair" to="UserInterface" method="_on_crosshair_draw"]

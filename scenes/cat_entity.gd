@@ -11,10 +11,28 @@ var is_angry := false
 @export var angry_dialogue = "I have nothing to say to you. Leave."
 @export var angry_dialogue_accept_fish = "I'll accept my fish, but I wish to see you no longer. Leave."
 
+@onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
+var sounds = {
+	"yap": preload("res://assets/audio/cat yapping.wav"),
+	"meow": preload("res://assets/audio/cat meow.wav"),
+	"angry": preload("res://assets/audio/angry cat dialogue.wav")
+}
+
+var sound_index = 0
+func play_sound(sound_name: String):
+	if sound_name in sounds:
+		audio_player.stream = sounds[sound_name]
+		audio_player.play()
+
 
 func interact(_body):
+	var alternating_sounds = ["yap", "meow"]
+	play_sound(alternating_sounds[sound_index])
+	sound_index = (sound_index + 1) % 2  # Loops between 0 and 1
 	
 	if not is_angry: 
+		
 		if _body.fish_collected == 0:
 			_body.fish_count_texture.visible = true
 			
