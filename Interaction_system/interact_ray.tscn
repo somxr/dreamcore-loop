@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4btncqt3f72o"]
+[gd_scene load_steps=3 format=3 uid="uid://c4btncqt3f72o"]
 
 [ext_resource type="Script" uid="uid://j3m434f0u55y" path="res://Interaction_system/interact_ray.gd" id="1_c7qyt"]
+[ext_resource type="FontFile" uid="uid://7kdy6gu8m1fg" path="res://assets/UI/Orange Kid.otf" id="2_ngguv"]
 
 [node name="InteractRay" type="RayCast3D"]
 target_position = Vector3(0, 0, -4)
 script = ExtResource("1_c7qyt")
 
 [node name="Prompt" type="Label" parent="."]
+texture_filter = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -17,7 +19,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("2_ngguv")
+theme_override_font_sizes/font_size = 20
 text = "Prompt
 [KEY]"
 horizontal_alignment = 1

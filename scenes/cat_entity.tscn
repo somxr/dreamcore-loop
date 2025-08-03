@@ -9,6 +9,8 @@ radius = 1.63772
 
 [node name="catEntity" type="CharacterBody3D"]
 script = ExtResource("1_rpycp")
+dialogue_texts = Array[String](["yooo get my fish", "please get my fish bro", "PLEASE", "what don't you get???", "FISH. NOW.", "FISH PLEASE"])
+dialogue_durations = Array[float]([3.0, 5.0, 4.0, 3.0, 3.0, 3.0])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.265, 0, 0, 0, 2.265, 0, 0, 0, 2.265, 0, 0, 0)

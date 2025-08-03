@@ -56,8 +56,6 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Raycast for detecting ceiling
 @onready var crouch_raycast = %CrouchRaycast
 
-@onready var dialogue_balloon: TextureRect = $UserInterface/DialogueBalloon
-@onready var dialogue_label: Label = $UserInterface/DialogueLabel
 
 
 # Dynamic values used for calculation
@@ -86,6 +84,13 @@ var can_pause: bool = true
 ######################################################################
 ##### OUR VARIABLES ###############################################
 ###################################################################### 
+@onready var dialogue_balloon: TextureRect = $UserInterface/DialogueBalloon
+@onready var dialogue_label: Label = $UserInterface/DialogueLabel
+@onready var fish_count_label: Label = $UserInterface/FishCountTexture/FishCountLabel
+@onready var fish_count_texture: TextureRect = $UserInterface/FishCountTexture
+
+
+
 var fish_collected := 0
  
 enum Progress {
@@ -349,4 +354,5 @@ func show_dialogue(text: String, duration: float):
 
 func collect_fish():
 	fish_collected += 1
-	print("Collected Fish \nFish total = " + str(fish_collected))
+	fish_count_label.text = str(fish_collected)
+	#print("Collected Fish \nFish total = " + str(fish_collected))
