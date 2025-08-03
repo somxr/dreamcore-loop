@@ -1,15 +1,12 @@
-[gd_scene load_steps=21 format=4 uid="uid://bybp5w4xhtvyn"]
+[gd_scene load_steps=18 format=4 uid="uid://bybp5w4xhtvyn"]
 
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="1_oojol"]
-[ext_resource type="PackedScene" uid="uid://cm0363efx3ols" path="res://scenes/entity_test.tscn" id="2_xq77f"]
 [ext_resource type="PackedScene" uid="uid://cb3b7sr8v6ksd" path="res://scenes/room.tscn" id="3_0yomu"]
 [ext_resource type="PackedScene" uid="uid://bm4w5sbwqi0nf" path="res://assets/dream_assets/groundv4.fbx" id="5_hvnw1"]
 [ext_resource type="PackedScene" uid="uid://23mnnva24nxr" path="res://assets/dream_assets/grass02.glb" id="5_q5uyg"]
-[ext_resource type="PackedScene" uid="uid://dk008fqvqntoa" path="res://assets/dream_assets/fish test.fbx" id="6_7d436"]
 [ext_resource type="Shader" uid="uid://df8n60i5m8qv1" path="res://material/grass.tres" id="7_hvnw1"]
 [ext_resource type="PackedScene" uid="uid://n846u8jdqgjc" path="res://assets/dream_assets/Clouds.fbx" id="8_jlm5j"]
-[ext_resource type="PackedScene" uid="uid://c6frvvaaqcw3i" path="res://assets/dream_assets/CatEntity3.fbx" id="8_q5uyg"]
-[ext_resource type="Script" uid="uid://cpgn6u5g74dxb" path="res://scenes/catentity.gd" id="9_r0a0i"]
+[ext_resource type="PackedScene" uid="uid://bkw6bcbuemkwb" path="res://scenes/cat_entity.tscn" id="10_r0a0i"]
 [ext_resource type="PackedScene" uid="uid://cggn7y5j0t3v0" path="res://assets/dream_assets/ground for grass5.fbx" id="11_hvnw1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
@@ -100,22 +97,8 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("1_oojol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60932, 0)
 
-[node name="entity_test" parent="." instance=ExtResource("2_xq77f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79612, 0.997572, -4.30471)
-prompt_action = "Kiss"
-
-[node name="entity_test2" parent="." instance=ExtResource("2_xq77f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14213, 0.997569, -7.07573)
-
-[node name="entity_test3" parent="." instance=ExtResource("2_xq77f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.07869, 0.997569, -5.90774)
-prompt_action = "Hit"
-
 [node name="Room" parent="." instance=ExtResource("3_0yomu")]
 transform = Transform3D(-0.999088, 0, 0.0427127, 0, 1, 0, -0.0427127, 0, -0.999088, 6.78765, 0.12714, 10.0964)
-
-[node name="fish" parent="." instance=ExtResource("6_7d436")]
-transform = Transform3D(0.196979, 0.00125057, -0.0346074, -0.0012359, 0.199996, 0.00019247, 0.0346079, 2.42952e-05, 0.196983, 0.749704, 1.05257, -3.69224)
 
 [node name="ground for grass" parent="." instance=ExtResource("11_hvnw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.476003, 0.984771, 0)
@@ -145,125 +128,123 @@ material_override = SubResource("ShaderMaterial_lo3jn")
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_hvnw1")
 
-[node name="Clouds" parent="." instance=ExtResource("8_jlm5j")]
+[node name="Clouds_Combined" type="Node3D" parent="."]
+
+[node name="Clouds" parent="Clouds_Combined" instance=ExtResource("8_jlm5j")]
 transform = Transform3D(-1.90126, 0, 0.620656, 0, 2, 0, -0.620656, 0, -1.90126, 0, 0, 0)
 
-[node name="Cloud_2" parent="Clouds/Clouds" index="0"]
+[node name="Cloud_2" parent="Clouds_Combined/Clouds/Clouds" index="0"]
 transform = Transform3D(9.47412, 6.43642, -2.65093, 0, -4.47718, -10.8705, -6.96096, 8.7602, -3.60801, -1814.43, 1232.74, -2513.65)
 
-[node name="Cloud_3" parent="Clouds/Clouds" index="1"]
+[node name="Cloud_3" parent="Clouds_Combined/Clouds/Clouds" index="1"]
 transform = Transform3D(-1.43804, 11.4953, -2.00088, 0, -2.01602, -11.5823, -11.6682, -1.41674, 0.246599, -2527.37, 545.851, -32.227)
 
-[node name="Cloud_4" parent="Clouds/Clouds" index="2"]
+[node name="Cloud_4" parent="Clouds_Combined/Clouds/Clouds" index="2"]
 transform = Transform3D(9.7144, -5.93858, 2.92874, -0.380533, -5.69207, -10.2796, 6.61055, 8.39926, -4.8956, 1267.86, 1541.14, -1871.07)
 
-[node name="Cloud_5" parent="Clouds/Clouds" index="3"]
+[node name="Cloud_5" parent="Clouds_Combined/Clouds/Clouds" index="3"]
 transform = Transform3D(2.36007, -11.292, 2.26597, 0.186621, -2.27526, -11.5327, 11.5156, 2.35112, -0.277503, 1857.58, 768.792, -729.696)
 
-[node name="Cloud_top" parent="Clouds/Clouds" index="4"]
+[node name="Cloud_top" parent="Clouds_Combined/Clouds/Clouds" index="4"]
 transform = Transform3D(15.0822, 0, 0, 0, -15.0822, 1.31853e-06, 0, -1.31853e-06, -15.0822, 0, 3117.07, 0)
 
-[node name="Cloud_1" parent="Clouds/Clouds" index="5"]
+[node name="Cloud_1" parent="Clouds_Combined/Clouds/Clouds" index="5"]
 transform = Transform3D(11.7326, -0.422727, -0.618006, -0.745416, -7.50943, -9.0148, -0.0706057, 9.03569, -7.52098, 31.1008, 2648.87, -2217.04)
 
-[node name="Clouds2" parent="." instance=ExtResource("8_jlm5j")]
+[node name="Clouds2" parent="Clouds_Combined" instance=ExtResource("8_jlm5j")]
 transform = Transform3D(2.05528, 0, -1.03239, 0, 2.3, 0, 1.03239, 0, 2.05528, 0, 0, 0)
 
-[node name="Cloud_2" parent="Clouds2/Clouds" index="0"]
+[node name="Cloud_2" parent="Clouds_Combined/Clouds2/Clouds" index="0"]
 transform = Transform3D(10.5559, 4.14918, -3.09363, -0.950687, -5.35325, -10.4237, -5.08748, 9.60942, -4.47108, -1806.99, 1442.69, -2508.01)
 
-[node name="Cloud_3" parent="Clouds2/Clouds" index="1"]
+[node name="Cloud_3" parent="Clouds_Combined/Clouds2/Clouds" index="1"]
 transform = Transform3D(0.739375, 11.733, 0.0684691, 0.381171, 0.0445482, -11.7502, -11.727, 0.7412, -0.377609, -2602.53, -101.657, -199.638)
 
-[node name="Cloud_4" parent="Clouds2/Clouds" index="2"]
+[node name="Cloud_4" parent="Clouds_Combined/Clouds2/Clouds" index="2"]
 transform = Transform3D(11.1908, -3.28727, 1.47438, -0.28475, -5.60312, -10.3314, 3.5915, 9.79861, -5.41316, 827.439, 1558.39, -2170.77)
 
-[node name="Cloud_5" parent="Clouds2/Clouds" index="3"]
+[node name="Cloud_5" parent="Clouds_Combined/Clouds2/Clouds" index="3"]
 transform = Transform3D(4.32462, -10.2544, 3.78938, -0.00825635, -4.07817, -11.0264, 10.9321, 4.05343, -1.50736, 2448.19, 2138.78, -993.337)
 
-[node name="Cloud_top" parent="Clouds2/Clouds" index="4"]
+[node name="Cloud_top" parent="Clouds_Combined/Clouds2/Clouds" index="4"]
 transform = Transform3D(15.0822, 0, 0, 0, -15.0822, 1.31853e-06, 0, -1.31853e-06, -15.0822, 0, 3117.07, 0)
 
-[node name="Cloud_1" parent="Clouds2/Clouds" index="5"]
+[node name="Cloud_1" parent="Clouds_Combined/Clouds2/Clouds" index="5"]
 transform = Transform3D(11.7326, -0.422727, -0.618006, -0.745416, -7.50943, -9.0148, -0.0706057, 9.03569, -7.52098, 31.1008, 2648.87, -2217.04)
 
-[node name="Clouds5" parent="." instance=ExtResource("8_jlm5j")]
+[node name="Clouds5" parent="Clouds_Combined" instance=ExtResource("8_jlm5j")]
 transform = Transform3D(-1.95195, 0, -1.2165, 0, 2.3, 0, 1.2165, 0, -1.95195, 0, -59.656, 0)
 
-[node name="Cloud_2" parent="Clouds5/Clouds" index="0"]
+[node name="Cloud_2" parent="Clouds_Combined/Clouds5/Clouds" index="0"]
 transform = Transform3D(10.5559, 4.91877, 1.60999, -0.950687, 5.43766, -10.3799, -5.08748, 9.18975, 5.28016, -2892.04, -617.887, -4374.3)
 
-[node name="Cloud_3" parent="Clouds5/Clouds" index="1"]
+[node name="Cloud_3" parent="Clouds_Combined/Clouds5/Clouds" index="1"]
 transform = Transform3D(-3.52554, 9.01144, 6.67676, -1.37464, 6.5989, -9.6322, -11.1308, -3.66921, -0.925208, -2695.14, -149.398, 1269.14)
 
-[node name="Cloud_4" parent="Clouds5/Clouds" index="2"]
+[node name="Cloud_4" parent="Clouds_Combined/Clouds5/Clouds" index="2"]
 transform = Transform3D(10.5256, -4.023, -3.35268, 0.364656, 8.07129, -8.54022, 5.22418, 7.54213, 7.35106, 636.53, -855.829, -3131.12)
 
-[node name="Cloud_5" parent="Clouds5/Clouds" index="3"]
+[node name="Cloud_5" parent="Clouds_Combined/Clouds5/Clouds" index="3"]
 transform = Transform3D(2.21535, -8.88984, -7.36727, 1.52665, 7.66139, -8.78557, 11.4444, 0.698822, 2.59809, 3233.05, -906.079, -189.919)
 
-[node name="Cloud_top" parent="Clouds5/Clouds" index="4"]
+[node name="Cloud_top" parent="Clouds_Combined/Clouds5/Clouds" index="4"]
 transform = Transform3D(15.0822, 0, 0, 0, -15.0822, 1.31853e-06, 0, -1.31853e-06, -15.0822, 0, 3117.07, 0)
 visible = false
 
-[node name="Cloud_1" parent="Clouds5/Clouds" index="5"]
+[node name="Cloud_1" parent="Clouds_Combined/Clouds5/Clouds" index="5"]
 transform = Transform3D(10.3433, -5.55491, -0.611767, 1.21624, 3.4936, -11.1593, 5.45456, 9.75457, 3.64832, 2833.04, 935.261, -6271.57)
 
-[node name="Clouds4" parent="." instance=ExtResource("8_jlm5j")]
+[node name="Clouds4" parent="Clouds_Combined" instance=ExtResource("8_jlm5j")]
 transform = Transform3D(0.528047, -0.00322308, 3.45994, 0.00382168, 3.5, 0.00267719, -3.45994, 0.00337406, 0.52805, 0, 0, 0)
 
-[node name="Cloud_2" parent="Clouds4/Clouds" index="0"]
+[node name="Cloud_2" parent="Clouds_Combined/Clouds4/Clouds" index="0"]
 transform = Transform3D(8.99825, 7.55354, -0.434565, 0.565654, -1.34501, -11.6656, -7.54485, 8.9078, -1.39289, -2199.21, -98.9108, -3091.36)
 
-[node name="Cloud_3" parent="Clouds4/Clouds" index="1"]
+[node name="Cloud_3" parent="Clouds_Combined/Clouds4/Clouds" index="1"]
 transform = Transform3D(1.3999, 11.6726, 0.0684691, 0.383077, 0.0229805, -11.7502, -11.6665, 1.40138, -0.377609, -3045.26, 72.2703, -247.051)
 
-[node name="Cloud_4" parent="Clouds4/Clouds" index="2"]
+[node name="Cloud_4" parent="Clouds_Combined/Clouds4/Clouds" index="2"]
 transform = Transform3D(9.65039, -6.0779, 2.85361, -0.546342, -5.69065, -10.2729, 6.6922, 8.29997, -4.95368, 2335.61, 2493.85, -3394.51)
 
-[node name="Cloud_5" parent="Clouds4/Clouds" index="3"]
+[node name="Cloud_5" parent="Clouds_Combined/Clouds4/Clouds" index="3"]
 transform = Transform3D(6.53968, -9.19599, 3.29859, -0.0473431, -3.99918, -11.0552, 9.76952, 6.13636, -2.26163, 2258.67, 2139.14, -1472.42)
 
-[node name="Cloud_top" parent="Clouds4/Clouds" index="4"]
+[node name="Cloud_top" parent="Clouds_Combined/Clouds4/Clouds" index="4"]
 transform = Transform3D(15.0822, 0, 0, 0, -15.0822, 1.31853e-06, 0, -1.31853e-06, -15.0822, 0, 3117.07, 0)
 visible = false
 
-[node name="Cloud_1" parent="Clouds4/Clouds" index="5"]
+[node name="Cloud_1" parent="Clouds_Combined/Clouds4/Clouds" index="5"]
 transform = Transform3D(11.7111, 0.8256, -0.618006, 0.0562621, -7.54613, -9.0148, -1.02975, 8.9771, -7.52098, 31.1007, 2648.87, -2217.04)
 
-[node name="Clouds3" parent="." instance=ExtResource("8_jlm5j")]
+[node name="Clouds3" parent="Clouds_Combined" instance=ExtResource("8_jlm5j")]
 transform = Transform3D(-0.344249, 0, -2.27409, 0, 2.3, 0, 2.27409, 0, -0.344249, 0, 0, 0)
 
-[node name="Cloud_2" parent="Clouds3/Clouds" index="0"]
+[node name="Cloud_2" parent="Clouds_Combined/Clouds3/Clouds" index="0"]
 transform = Transform3D(9.66031, 6.45582, 1.79296, 0.226415, 2.82968, -11.4086, -6.69634, 9.40899, 2.20083, -1655.65, -249.261, -2095.43)
 
-[node name="Cloud_3" parent="Clouds3/Clouds" index="1"]
+[node name="Cloud_3" parent="Clouds_Combined/Clouds3/Clouds" index="1"]
 transform = Transform3D(-4.50078, 10.4164, 3.0751, 0.178319, 3.39912, -11.2529, -10.8593, -4.26138, -1.4593, -2957.25, -902.151, 1315.65)
 
-[node name="Cloud_4" parent="Clouds3/Clouds" index="2"]
+[node name="Cloud_4" parent="Clouds_Combined/Clouds3/Clouds" index="2"]
 transform = Transform3D(7.82475, -8.50928, -2.1399, 0.897486, 3.62838, -11.1464, 8.72821, 7.2554, 3.06454, 2035.84, -962.532, -2170.94)
 
-[node name="Cloud_5" parent="Clouds3/Clouds" index="3"]
+[node name="Cloud_5" parent="Clouds_Combined/Clouds3/Clouds" index="3"]
 transform = Transform3D(-6.39529, -8.51153, -4.98677, 0.619569, 5.58473, -10.3267, 9.84531, -5.88035, -2.58943, 2425.5, -1010.61, 1247.49)
 
-[node name="Cloud_top" parent="Clouds3/Clouds" index="4"]
+[node name="Cloud_top" parent="Clouds_Combined/Clouds3/Clouds" index="4"]
 transform = Transform3D(15.0822, 0, 0, 0, -15.0822, 1.31853e-06, 0, -1.31853e-06, -15.0822, 0, 3117.07, 0)
 
-[node name="Cloud_1" parent="Clouds3/Clouds" index="5"]
+[node name="Cloud_1" parent="Clouds_Combined/Clouds3/Clouds" index="5"]
 transform = Transform3D(11.6533, 1.54024, 0.202767, -0.515794, 5.2834, -10.4897, -1.4654, 10.3888, 5.30464, -180.396, -549.974, -3503.93)
 
-[node name="CatEntity3" parent="." instance=ExtResource("8_q5uyg")]
-transform = Transform3D(0.702519, -0.058703, -0.70924, -0.022561, 0.994254, -0.10464, 0.711307, 0.0895131, 0.697158, 11.123, 3.41727, -11.3165)
-
-[node name="catentity" parent="CatEntity3" index="0"]
-script = ExtResource("9_r0a0i")
+[node name="catEntity" parent="." instance=ExtResource("10_r0a0i")]
+transform = Transform3D(1, 0, 0, 0, 0.995779, -0.0917797, 0, 0.0917797, 0.995779, 9.38004, 2.97665, -13.997)
 
 [editable path="ground for grass"]
 [editable path="ground mesh"]
 [editable path="grass"]
-[editable path="Clouds"]
-[editable path="Clouds2"]
-[editable path="Clouds5"]
-[editable path="Clouds4"]
-[editable path="Clouds3"]
-[editable path="CatEntity3"]
+[editable path="Clouds_Combined/Clouds"]
+[editable path="Clouds_Combined/Clouds2"]
+[editable path="Clouds_Combined/Clouds5"]
+[editable path="Clouds_Combined/Clouds4"]
+[editable path="Clouds_Combined/Clouds3"]
