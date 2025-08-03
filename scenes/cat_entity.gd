@@ -18,21 +18,22 @@ var sounds = {
 	"meow": preload("res://assets/audio/cat meow.wav"),
 	"angry": preload("res://assets/audio/angry cat dialogue.wav")
 }
-
+var alternating_sounds = ["yap", "meow"]
 var sound_index = 0
 func play_sound(sound_name: String):
 	if sound_name in sounds:
 		audio_player.stream = sounds[sound_name]
 		audio_player.play()
 
+signal cat_talked
 
 func interact(_body):
-	var alternating_sounds = ["yap", "meow"]
-	play_sound(alternating_sounds[sound_index])
-	sound_index = (sound_index + 1) % 2  # Loops between 0 and 1
-	
-	if not is_angry: 
+	if current_line == 0:
+		cat_talked.emit()
 		
+	if not is_angry: 
+		play_sound(alternating_sounds[sound_index])
+		sound_index = (sound_index + 1) % 2  # Loops between 0 and 1
 		if _body.fish_collected == 0:
 			_body.fish_count_texture.visible = true
 			
@@ -54,6 +55,7 @@ func interact(_body):
 			_body.fish_count_texture.visible = false
 			_body.current_progress = _body.Progress.SLEEPY
 	else:
+		play_sound("angry")
 		_body.current_progress = _body.Progress.WIN
 		_body.fish_count_texture.visible = false
 		if _body.fish_collected < 3:

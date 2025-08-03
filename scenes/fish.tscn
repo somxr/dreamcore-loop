@@ -13,6 +13,7 @@ height = 1.49177
 script = ExtResource("1_n6yr6")
 wiggle_speed = 0.6
 prompt_action = "Collect"
+enabled = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

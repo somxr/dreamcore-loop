@@ -9,7 +9,5 @@ func interact(_body):
 			get_tree().reload_current_scene()
 		_body.Progress.WIN:
 			# transition to win screen
-			#get_tree().change_scene_to_file("res://levels/Level1.tscn")
-			print("WIN SCREEN")
-			pass
+			get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
 		
