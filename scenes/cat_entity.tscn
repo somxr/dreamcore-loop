@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5hr8ds4v38c4" path="res://scenes/cat_entity.gd" id="1_rpycp"]
 [ext_resource type="PackedScene" uid="uid://c6frvvaaqcw3i" path="res://assets/dream_assets/CatEntity3.fbx" id="2_0apvk"]
-[ext_resource type="Script" uid="uid://cpgn6u5g74dxb" path="res://scenes/catentity.gd" id="3_sj5l4"]
+[ext_resource type="Script" path="res://scenes/catentity.gd" id="3_sj5l4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lfeyb"]
 

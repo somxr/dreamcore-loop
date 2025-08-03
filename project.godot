@@ -23,6 +23,7 @@ QuitManager="*res://quitManager.gd"
 
 [display]
 
+window/stretch/mode="canvas_items"
 window/positional_shadow/soft_shadow_filter_quality=2
 window/directional_shadow/soft_shadow_filter_quality=2
 window/quality/msaa_2d=2

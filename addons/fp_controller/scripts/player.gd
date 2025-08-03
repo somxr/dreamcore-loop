@@ -350,8 +350,8 @@ func show_dialogue(text: String, duration: float):
 	
 	# Wait for F press
 	while not Input.is_action_just_pressed("interact"):
-		# Stop all movement immediately
-		velocity = Vector3.ZERO
+		velocity.x = 0
+		velocity.z = 0
 		await get_tree().process_frame
 
 	dialogue_label.visible = false
